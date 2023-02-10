@@ -9,3 +9,10 @@ You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.
 You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
 
 ## Your Explanation Here
+1. Moved out the repeated code to a separate fn `createHash` in accordance of DRY principle
+2. Removed too many if else cases
+3. First checking for event.partitionKey. If it exists, we can move to the validation of type and string length
+3. Else if event object exists then we create a hash of it and then pass it forward for the type and string length validation
+5. Instead of assigning candidate as `TRIVIAL_PARTITION_KEY` , the function is simply returning `TRIVIAL_PARTITION_KEY` if candidate is null or undefined.
+
+The refactored function has separated all cases without need of multiple if-else statements making it more readable than the original function.
